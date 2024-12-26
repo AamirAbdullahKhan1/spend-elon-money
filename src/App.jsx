@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import ProductList from './components/ProductList';
 import Cart from './components/Cart';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 const ELON_MUSK_MONEY = 217000000000; // $217 billion
 
@@ -52,6 +53,7 @@ const App = () => {
           <ProductList addToCart={addToCart} removeFromCart={removeFromCart} cart={cart} />
         </div>
         <Cart cart={cart} totalSpent={totalSpent} elonMoney={ELON_MUSK_MONEY} />
+        <Footer/>
       </main>
     </div>
   );
