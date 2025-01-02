@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const Product = ({ product, addToCart, removeFromCart, quantity }) => {
+const Product = ({ product, addToCart, removeFromCart, quantity, remainingMoney }) => {
+  const isDisabled = product.price > remainingMoney;
+
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
@@ -22,10 +24,11 @@ const Product = ({ product, addToCart, removeFromCart, quantity }) => {
         </motion.button>
         <span className="font-semibold">{quantity}</span>
         <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
+          whileHover={{ scale: isDisabled ? 1 : 1.1 }}
+          whileTap={{ scale: isDisabled ? 1 : 0.9 }}
           onClick={() => addToCart(product)}
-          className="bg-blue-500 text-white px-3 py-1 rounded-md"
+          className={`text-white px-3 py-1 rounded-md ${isDisabled ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-500'}`}
+          disabled={isDisabled}
         >
           +
         </motion.button>

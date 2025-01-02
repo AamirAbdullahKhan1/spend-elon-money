@@ -48,4 +48,3 @@ const Cart = ({ cart, totalSpent, elonMoney }) => {
 };
 
 export default Cart;
-

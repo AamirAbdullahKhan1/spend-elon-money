@@ -36,7 +36,7 @@ const products = [
 // Sort products by price
 const sortedProducts = [...products].sort((a, b) => a.price - b.price);
 
-const ProductList = ({ addToCart, removeFromCart, cart }) => {
+const ProductList = ({ addToCart, removeFromCart, cart, remainingMoney }) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -56,6 +56,7 @@ const ProductList = ({ addToCart, removeFromCart, cart }) => {
             addToCart={addToCart}
             removeFromCart={removeFromCart}
             quantity={cart.find(item => item.id === product.id)?.quantity || 0}
+            remainingMoney={remainingMoney}
           />
         </motion.div>
       ))}
